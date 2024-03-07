@@ -1,5 +1,6 @@
 from tkinter import *
 from math import *
+from tkinter.filedialog import asksaveasfilename
 
 master = Tk()
 canvas = Canvas(master, width=600, height=600)
@@ -177,6 +178,16 @@ def create_object(event):
     depth_entr.bind('<Return>', iupdate)
     xy_angle_entr.bind('<Return>', iupdate)
     yz_angle_entr.bind('<Return>', iupdate)
+
+    itp_entr.bind('<Leave>', iupdate)
+    x_entr.bind('<Leave>', iupdate)
+    y_entr.bind('<Leave>', iupdate)
+    z_entr.bind('<Leave>', iupdate)
+    width_entr.bind('<Leave>', iupdate)
+    height_entr.bind('<Leave>', iupdate)
+    depth_entr.bind('<Leave>', iupdate)
+    xy_angle_entr.bind('<Leave>', iupdate)
+    yz_angle_entr.bind('<Leave>', iupdate)
 
     def commit(*args):
         dialog.destroy()
@@ -419,7 +430,66 @@ def scale2(event):
     update()
 
 
+Autosaves = 0
+
+
+def autosave(*args):
+    global Autosaves
+    import datetime
+    if Autosaves <= 0:
+        with open(f'''map_editor_autosave_{str(datetime.datetime.now()).replace(" ", "_")
+        .replace(".", "_").replace(":", "_")}.txt''', 'x') as file:
+            print('''BoteX: 0
+BoteY: 0
+BoteZ: 0
+''', file=file)
+
+            for i in OBJECTS:
+                tp, i, xy, yz = i
+                print(tp, str(i) + '_' + str(xy) + '_' + str(yz), file=file)
+
+        Autosaves += 1
+
+
+def save(*args):
+    global Autosaves
+    Autosaves += 1
+    name = asksaveasfilename()
+    with open(name, 'w') as file:
+        print('''BoteX: 0
+BoteY: 0
+BoteZ: 0
+    ''', file=file)
+
+        for i in OBJECTS:
+            tp, i, xy, yz = i
+            print(tp, str(i) + '_' + str(xy) + '_' + str(yz), file=file)
+    master.destroy()
+
+
+def msave(*args):
+    global Autosaves
+    Autosaves += 1
+    name = asksaveasfilename()
+    with open(name, 'w') as file:
+        print('''BoteX: 0
+    BoteY: 0
+    BoteZ: 0
+        ''', file=file)
+
+        for i in OBJECTS:
+            tp, i, xy, yz = i
+            print(tp, str(i) + '_' + str(xy) + '_' + str(yz), file=file)
+    Autosaves -= 1
+
+
 master.bind('<MouseWheel>', scale2)
+
+master.bind('<Control-s>', save)
+master.bind('<Control-S>', save)
+master.bind('<Destroy>', autosave)
+master.bind('<Shift-S>', msave)
+master.bind('<Shift-s>', msave)
 
 while True:
     update()

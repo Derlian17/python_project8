@@ -1,0 +1,375 @@
+B pass
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(4.1)
+S -1 -1
+B move(0.1)
+S -1 -1
+B move(4.7)
+S -1 -1
+B move(1.1)
+S -1 -1
+B move(0.5)
+S -1 -1
+B move(0.5)
+S -1 -1
+B move(4)
+S -1 -1
+B move(4)
+S -1 -1
+B move(4)
+S -1 -1
+B move(0.5)
+S -1 -1
+B move(4)
+S -1 -1
+B move(0.5)
+S -1 -1
+B move(4)
+S -1 -1
+B move(0.5)
+
+S -1 -1
+B move(-1)
+
+S -1 -1
+B move(-2)
+S -1 -1
+B move(3)
+
+S -1 -1
+B move(-1)
+S -1 -1
+B move(-1)
+S -1 -1
+B move(-1)
+S -1 -1
+B move(-1)
+S -1 -1
+B move(1)
+S -1 -1
+B move(1)
+S -1 -1
+B move(1)
+
+S -1 -1
+B move(1)
+
+S -1 -1
+B move(1)
+S -1 -1
+B move(1)
+
+S -1 -1
+B move(10)
+
+S DESTROY
+B move(4.5)
+
+S -1 -1
+B move(0.5)
+
+S -1 -1
+B rotate(90)
+
+S -1 -1
+B rotate(-45)
+
+S -1 -1
+B move(2)
+
+S -1 2.14
+B move(-1)
+
+S -1 -1
+B rotate(45)
+
+S -1
+B move(1)
+
+S 0.0
+B move(4)
+S 0.0
+B move(5)
+
+S 0.0
+B move(5)
+
+S 0.0
+B move(5)
+
+S 0.0
+B move(5)
+
+S 0.0
+B move(5)
+
+S 0.0
+B move(5)
+
+S -1
+B move(5)
+
+S -1
+B move(5)
+
+S -1
+B move(1)
+
+S -1
+B move(4)
+
+S 4.99
+B move(5)
+
+S DESTROY
+B move(5)
+
+S 4.99
+B move(5)
+
+S 4.99
+B pass
+S 4.99
+B move(5)
+
+S 4.99
+B move(5)
+
+S 3.0100000000000002
+B move(10)
+
+S 0.01
+B move(10)
+S DESTROY
+
+S -1
+B move(10)
+
+S DESTROY
+
+S -1
+B move(10)
+
+S DESTROY
+
+S -1
+B move(4)
+
+S DESTROY
+
+S -1
+B move(4)
+
+S DESTROY
+
+S -1
+B move(5)
+
+S DESTROY
+
+S -1
+B move(5)
+
+S DESTROY
+
+S -1
+B move(5)
+S DESTROY
+
+S -1
+B move(5)
+
+S DESTROY
+
+S -1
+B move(5)
+S 3.0100000000000002
+B move(5)
+
+S 0.01
+B rotate(90)
+
+S 0.01
+B move(10)
+
+S 0.01
+B move(10)
+
+S 0.01
+B rotate(90)
+
+S 0.01
+B move(3)
+
+S DESTROY
+
+S 0.0
+B move(10)
+
+S 0.01
+B move(-1)
+
+S 0.01
+B move(10)
+
+S DESTROY
+B move(90)
+
+S DESTROY
+B move(9)
+
+S DESTROY
+B move(90)
+
+S DESTROY
+B move(90)
+
+S DESTROY
+B move(90)
+
+S DESTROY
+B move(9)
+
+S DESTROY
+B move(9)
+
+S DESTROY
+B move(9)
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY
+
+S DESTROY

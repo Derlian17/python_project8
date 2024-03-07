@@ -1,0 +1,67 @@
+                for i in OBJECTS:
+                    tp, i, dxy, dyz = i
+                    cx, cy, cz, wd, hd, dh = i
+                    if tp == 'rect':
+                        p1 = (cx - wd / 2, cy + hd / 2)
+                        p2 = (cx + wd / 2, cy + hd / 2)
+                        p3 = (cx + wd / 2, cy - hd / 2)
+                        p4 = (cx - wd / 2, cy - hd / 2)
+
+                        def pereschet(point, angle):
+                            chetvert = ''
+                            x0, y0 = point
+                            dx, dy = x0 - cx, y0-cy
+                            if x0 > cx and y0 >= cy:
+                                chetvert = 'I'
+                            elif x0 > cx and y0 < cy:
+                                chetvert = 'IV'
+                            elif y0 >= cy:
+                                chetvert = 'II'
+                            else:
+                                chetvert = 'III'
+
+                            angle_f = atan((y0 - cy) / (x0 - cx))
+                            if chetvert in ['I', 'IV']:
+                                pass
+                            else:
+                                angle_f = angle_f + pi
+
+                            xn = cx + dx * cos(angle_f + angle)
+                            yn = cy + dy * sin(angle_f + angle)
+
+                            return xn, yn
+
+                        def is_in_(xp, yp, pnt1, pnt2):
+                            x1, y1 = pnt1
+                            x2, y2 = pnt2
+                            D = (x2 - x1) * (yp - y1) - (xp - x1) * (y2 - y1)
+                            return D >= 0
+
+                        p1 = pereschet(p1, dxy)
+                        p2 = pereschet(p2, dxy)
+                        p3 = pereschet(p3, dxy)
+                        p4 = pereschet(p4, dxy)
+
+                        f = True
+                        for k in [(p1, p2), (p2, p3), (p3, p4), (p4, p1)]:
+                            f = f and is_in_(x, y, *k)
+                            if not f:
+                                break
+                        if f:
+                            minD = s * Step
+                            break
+                        # if cx - wd / 2 <= x <= cx + wd / 2:
+                        #     if cy - hd / 2 <= y <= cy + hd / 2:
+                        #         if minD == -1:
+                        #             minD = s * Step
+                        #             break
+                    elif tp == 'oval':
+                        a, b = wd / 2, hd / 2
+                        if (x - cx) ** 2 / wd * 2 + (y - cy) ** 2 / hd * 2 \
+                                - 2 * (x - cx) * (y - cy) / a / b * cos(dxy/180*pi) <= sin(dxy / 180 * pi) ** 2:
+                            minD = s * Step
+                            break
+                if minD == s:
+                    break
+            if minD == s:
+                break

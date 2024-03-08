@@ -95,10 +95,11 @@ def create_object(event):
         width, height = 4, 2
         # OBJECTS.append(['rect', [x, y, 0, 4, 2, -1], 45, 0])
     else:
-        x, y = x - DXM * Masshtabe % (0.1 * Masshtabe), y - DYM * Masshtabe % (0.1 * Masshtabe)
-        x, y = round(x / Masshtabe / 0.1), round(y / Masshtabe / 0.1)
-        x, y = x * 0.1 - DXM + DXM * Masshtabe % (0.1 * Masshtabe) / Masshtabe, \
-               y * 0.1 - DYM + DYM * Masshtabe % (0.1 * Masshtabe) / Masshtabe
+        step = -round(-0.1 * Masshtabe)
+        x, y = x - DXM * Masshtabe % step, y - DYM * Masshtabe % step
+        x, y = round(x / step), round(y / step)
+        x, y = x * step / Masshtabe - DXM + DXM * Masshtabe % step / Masshtabe, \
+               y * step / Masshtabe - DYM + DYM * Masshtabe % step / Masshtabe
         width, height = 0.4, 0.2
         # OBJECTS.append(['rect', [x, y, 0, 0.04, 0.02, -1], 45, 0])
     OBJECTS.append([itp, [x, y, z, width, height, depth], xy_angle, yz_angle])
@@ -405,10 +406,11 @@ def aim(event):
             (y + DYM) * Masshtabe + 300
         canvas.create_oval(xa - 3, ya - 3, xa + 3, ya + 3, fill='gold', tags=['motion'])
     else:
-        x, y = x - DXM * Masshtabe % (0.1 * Masshtabe), y - DYM * Masshtabe % (0.1 * Masshtabe)
-        x, y = round(x / Masshtabe / 0.1), round(y / Masshtabe / 0.1)
-        x, y = x * 0.1 - DXM + DXM * Masshtabe % (0.1 * Masshtabe) / Masshtabe, \
-               y * 0.1 - DYM + DYM * Masshtabe % (0.1 * Masshtabe) / Masshtabe
+        step = -round(-0.1 * Masshtabe)
+        x, y = x - DXM * Masshtabe % step, y - DYM * Masshtabe % step
+        x, y = round(x / step), round(y / step)
+        x, y = x * step / Masshtabe - DXM + DXM * Masshtabe % step / Masshtabe, \
+               y * step / Masshtabe - DYM + DYM * Masshtabe % step / Masshtabe
         xa, \
         ya = \
             (x + DXM) * Masshtabe + 300, \

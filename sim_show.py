@@ -35,7 +35,7 @@ DIRECTION_XY, DIRECTION_YZ = 0, 0  # ##/ #@!
 # XY 0 +Y, 180 -Y, 90 +X, 270 -X
 # YZ 0 +Y, 180 -Y, 90 +Z, 270 -Z
 
-DRONE_SENSORS = [(0, 0,      5, 6)]  # ##/
+DRONE_SENSORS = [(0, 0,      5.1, 6)]  # ##/
 #                                    первая переменная в кортеже определяет угол в пл. XOY,
 #                                    вторая - в YOZ, третья обозначает расстояние на котором
 #                                    сканер засекает объект, четвертая - угол на который расходятся лучи.
@@ -51,12 +51,14 @@ stDMY = 0  #
 DXM = 0  #
 DYM = 0  #
 
+DX, DY = 0, 0
+
 DESTROY = False  # переменная на прекращение цикла
 
-SUBPOINTS = [(0, 0, 0), (0.7, 0.7, 0), (0.7, -0.7, 0), (-0.7, 0.7, 0), (-0.7, -0.7, 0)]
+SUBPOINTS = [(0, 0, 0), (0.5, 0.42, 0), (0.5, -0.42, 0), (-0.5, 0.42, 0), (-0.5, -0.42, 0)]
 
 for i in data[3:]:
-    if i == '\n':
+    if i.strip() in ['\n', '']:
         pass
     else:
         els = i.split()
@@ -66,8 +68,8 @@ for i in data[3:]:
             els += ['0']
         if len(els) < 4:
             els += ['0']
-        els[2] = int(els[2])
-        els[3] = int(els[3])
+        els[2] = float(els[2])
+        els[3] = float(els[3])
         OBJECTS.append(els)  # заполнение переменной объектами
 
 
@@ -190,8 +192,8 @@ def move(metres):
                         return
                 elif tp == 'oval':
                     a, b = wd / 2, hd / 2  # #$ мат. формула для овала
-                    if (x - cx) ** 2 / (a ** 2) + (y - cy) ** 2 / (b ** 2) \
-                            - 2 * (x - cx) * (y - cy) / a / b * cos(dxy / 180 * pi) <= sin(dxy / 180 * pi) ** 2:
+                    if (((x - cx) * cos(dxy / 180 * pi) + (y - cy) * sin(dxy / 180 * pi)) ** 2) / (a ** 2) \
+                            + (((x - cx) * sin(dxy / 180 * pi) - (y - cy) * cos(dxy / 180 * pi)) ** 2) / (b ** 2) <= 1:
                         DESTROY = True
                         with open('log.txt', 'a') as filew:
                             print('\nS', 'DESTROY', file=filew)
@@ -298,8 +300,8 @@ def move(metres):
                         return
                 elif tp == 'oval':
                     a, b = wd / 2, hd / 2  # #$ мат. формула для овала
-                    if (x - cx) ** 2 / (a ** 2) + (y - cy) ** 2 / (b ** 2) \
-                            - 2 * (x - cx) * (y - cy) / a / b * cos(dxy / 180 * pi) <= sin(dxy / 180 * pi) ** 2:
+                    if (((x - cx) * cos(dxy / 180 * pi) + (y - cy) * sin(dxy / 180 * pi)) ** 2) / (a ** 2) \
+                            + (((x - cx) * sin(dxy / 180 * pi) - (y - cy) * cos(dxy / 180 * pi)) ** 2) / (b ** 2) <= 1:
                         DESTROY = True
                         with open('log.txt', 'a') as filew:
                             print('\nS', 'DESTROY', file=filew)
@@ -319,7 +321,7 @@ def write():  # yt ktpmnt? jyj dfc cj;htn...
         xyd, yzd, max_len, angle_range = el
         xyd += DIRECTION_XY
         minD = -1
-        for s in range(round(max_len / Step)):
+        for s in range(round(max_len / Step)+1):
             for ang in range(-round(angle_range/2), round(angle_range/2)+1):
                 x = DRONEX + s * Step * sin(DIRECTION_XY / 180 * pi + ang / 180 * pi)
                 y = DRONEY + s * Step * cos(DIRECTION_XY / 180 * pi + ang / 180 * pi)
@@ -385,8 +387,9 @@ def write():  # yt ktpmnt? jyj dfc cj;htn...
                         #             break
                     elif tp == 'oval':
                         a, b = wd / 2, hd / 2  # #$
-                        if (x - cx) ** 2 / (a ** 2) + (y - cy) ** 2 / (b ** 2) \
-                                - 2 * (x - cx) * (y - cy) / a / b * cos(dxy/180*pi) <= sin(dxy / 180 * pi) ** 2:
+                        if (((x - cx) * cos(dxy / 180 * pi) + (y - cy) * sin(dxy / 180 * pi)) ** 2) / (a ** 2) \
+                                + (((x - cx) * sin(dxy / 180 * pi) - (y - cy) * cos(dxy / 180 * pi)) ** 2) / (
+                                b ** 2) <= 1:
                             minD = s * Step
                             break
                 if minD == s * Step:
@@ -651,10 +654,50 @@ while DESTROY is False:
     #                        300-0.5*Masshtabe*cos(DIRECTION_XY / 180 * pi+ pi), 300, 300, tags=['map'], fill='red',
     #                        width=2)
     map_canvas.create_image(300, 300, image=img, tags=['map', 'obj'])
+
+
+    def pereschet0(point, angle):
+        try:
+            chetvert = ''
+            x0, y0 = point
+            cx, cy = 0, 0
+            dx, dy = x0 - cx, y0 - cy
+            if x0 > cx and y0 >= cy:
+                chetvert = 'I'
+            elif x0 > cx and y0 < cy:
+                chetvert = 'IV'
+            elif y0 >= cy:
+                chetvert = 'II'
+            else:
+                chetvert = 'III'
+
+            angle_f = atan((y0 - cy) / (x0 - cx))
+            if chetvert in ['I', 'IV']:
+                pass
+            else:
+                angle_f = angle_f + pi
+
+            ln = (dx ** 2 + dy ** 2) ** 0.5
+
+            xn = cx + ln * cos(angle_f + angle)
+            yn = cy + ln * sin(angle_f + angle)
+
+            return xn, yn
+        except ZeroDivisionError:
+            return point
+
+
+    for pnt in SUBPOINTS:
+        dx, dy, dz = pnt
+        pntn = pereschet0((dx, dy), -DIRECTION_XY / 180 * pi + pi)
+        xo, yo = pntn[0]*Masshtabe+300, pntn[1] * Masshtabe+300
+        map_canvas.create_oval(xo+1, yo+1, xo-1, yo-1,
+                               fill='green', tags=['map', 'obj'], outline='green')
     map_canvas.move('obj', DXM*Masshtabe, DYM*Masshtabe)
     if SensUPDATE:
         map_canvas.itemconfigure(sensors, text=' '.join(map(str, write())))
     master.update()
+    DX, DY = DRONEX, DRONEY
     read()
 
     if SensUPDATE and DESTROY:
@@ -696,6 +739,7 @@ while DESTROY is False:
 
     time.sleep(step_time - ((time.monotonic() - start_time) % step_time))
 
+print(DRONEX, DRONEY)
 
 while True:
 

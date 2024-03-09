@@ -1,260 +1,4546 @@
 B pass
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(4.1)
-S -1 -1
-B move(0.1)
-S -1 -1
-B move(4.7)
-S -1 -1
-B move(1.1)
-S -1 -1
-B move(0.5)
-S -1 -1
-B move(0.5)
-S -1 -1
-B move(4)
-S -1 -1
-B move(4)
-S -1 -1
-B move(4)
-S -1 -1
-B move(0.5)
-S -1 -1
-B move(4)
-S -1 -1
-B move(0.5)
-S -1 -1
-B move(4)
-S -1 -1
-B move(0.5)
-
-S -1 -1
-B move(-1)
-
-S -1 -1
-B move(-2)
-S -1 -1
-B move(3)
-
-S -1 -1
-B move(-1)
-S -1 -1
-B move(-1)
-S -1 -1
-B move(-1)
-S -1 -1
-B move(-1)
-S -1 -1
-B move(1)
-S -1 -1
-B move(1)
-S -1 -1
-B move(1)
-
-S -1 -1
-B move(1)
-
-S -1 -1
-B move(1)
-S -1 -1
-B move(1)
-
-S -1 -1
-B move(10)
-
-S DESTROY
-B move(4.5)
-
-S -1 -1
-B move(0.5)
-
-S -1 -1
-B rotate(90)
-
-S -1 -1
-B rotate(-45)
-
-S -1 -1
-B move(2)
-
-S -1 2.14
-B move(-1)
-
-S -1 -1
-B rotate(45)
 
 S -1
-B move(1)
-
-S 0.0
-B move(4)
-S 0.0
-B move(5)
-
-S 0.0
-B move(5)
-
-S 0.0
-B move(5)
-
-S 0.0
-B move(5)
-
-S 0.0
-B move(5)
-
-S 0.0
-B move(5)
-
-S -1
-B move(5)
-
-S -1
-B move(5)
+B rotate(0)
 
 S -1
 B move(1)
 
 S -1
-B move(4)
-
-S 4.99
-B move(5)
-
-S DESTROY
-B move(5)
-
-S 4.99
-B move(5)
-
-S 4.99
-B pass
-S 4.99
-B move(5)
-
-S 4.99
-B move(5)
-
-S 3.0100000000000002
-B move(10)
-
-S 0.01
-B move(10)
-S DESTROY
+B move(1)
 
 S -1
-B move(10)
+B move(1)
 
-S DESTROY
-
-S -1
-B move(10)
-
-S DESTROY
+S 5.0
+B rotate(60)
 
 S -1
-B move(4)
-
-S DESTROY
+B rotate(30)
 
 S -1
-B move(4)
-
-S DESTROY
+B move(1.25)
 
 S -1
-B move(5)
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S -1
-B move(5)
-
-S DESTROY
-
-S -1
-B move(5)
-S DESTROY
+S 5.0
+B rotate(60)
 
 S -1
-B move(5)
-
-S DESTROY
+B rotate(30)
 
 S -1
-B move(5)
-S 3.0100000000000002
-B move(5)
+B move(1.25)
 
-S 0.01
-B rotate(90)
+S -1
+B rotate(-90)
 
-S 0.01
-B move(10)
+S 5.0
+B rotate(0)
 
-S 0.01
-B move(10)
+S 5.0
+B rotate(60)
 
-S 0.01
-B rotate(90)
+S -1
+B rotate(30)
 
-S 0.01
-B move(3)
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
 
 S DESTROY
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
+
+S DESTROY
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
+
+S DESTROY
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
+
+S DESTROY
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
+
+S DESTROY
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
+
+S DESTROY
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.38
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 5.09
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 4.5
+B rotate(0)
+
+S 4.5
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S -1
+B move(1)
+
+S 4.61
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S -1
+B rotate(0)
+
+S -1
+B move(1)
+
+S 4.8500000000000005
+B rotate(60)
+
+S -1
+B rotate(30)
+
+S -1
+B move(1.25)
+
+S -1
+B rotate(-90)
+
+S 3.0
+B rotate(0)
+
+S 3.0
+B move(1)
+
+S 2.0
+B move(1)
+
+S 1.0
+B move(1)
 
 S 0.0
-B move(10)
+B move(1)
 
-S 0.01
-B move(-1)
-
-S 0.01
-B move(10)
-
-S DESTROY
-B move(90)
-
-S DESTROY
-B move(9)
-
-S DESTROY
-B move(90)
-
-S DESTROY
-B move(90)
-
-S DESTROY
-B move(90)
-
-S DESTROY
-B move(9)
-
-S DESTROY
-B move(9)
-
-S DESTROY
-B move(9)
+S 2.24
+B move(1)
 
 S DESTROY
 
@@ -277,92 +4563,141 @@ S DESTROY
 S DESTROY
 
 S DESTROY
+B rotate(0)
 
-S DESTROY
+S -1
+B move(1)
 
-S DESTROY
+S -1
+B move(1)
 
-S DESTROY
+S -1
+B move(1)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
 
-S DESTROY
+S 5.0
+B rotate(60)
 
-S DESTROY
+S -1
+B rotate(30)
 
-S DESTROY
+S -1
+B move(1.25)
 
-S DESTROY
+S -1
+B rotate(-90)
 
-S DESTROY
+S 5.0
+B rotate(0)
+
+S 5.0
+B rotate(60)
+
+S -1
 
 S DESTROY
 

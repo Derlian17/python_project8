@@ -27,8 +27,8 @@ def Round(x):
 
 def Find_dist():
     global past_dist
-    past_dist = dist
     global dist
+    past_dist = dist
     f = True
     while f:
         with open('log.txt') as file:
@@ -54,8 +54,8 @@ def Look_around():
         Round(1)
         if dist == -1:
             Go_around(degr)
-        if dist > (math.sin(degr) * dist):
-            if (math.sin(degr) * dist) - (math.sin(degr - 1) * past_dist) > DRONW:
+        if dist > (math.sin(degr / 180 * pi) * dist):
+            if (math.sin(degr / 180 * pi) * dist) - (math.sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) > DRONW:
                 Go_around(degr)
                 return
     Round(-1 * degr)
@@ -65,8 +65,8 @@ def Look_around():
         Round(-1)
         if dist == -1:
             Go_around(degr)
-        if dist > (math.sin(-degr) * dist):
-            if (math.sin(-degr) * dist) - (math.sin(1 - degr) * past_dist) > DRONW:
+        if dist > (math.sin(-degr / 180 * pi) * dist):
+            if (math.sin(-degr / 180 * pi) * dist) - (math.sin(1 * pi / 180 - degr / 180 * pi) * past_dist) > DRONW:
                 Go_around(degr)
                 return
 
@@ -74,7 +74,7 @@ def Go_around(degr):
     if degr:
         Round(90 - degr)
         if dist == -1:
-            Step((math.sin(degr - 1) * past_dist) + 0.5 * DRONW)
+            Step((math.sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
         else:
             Round(-90)
             Adjust()
@@ -90,7 +90,7 @@ def Shortest_route():
 
 def Adjust():
     otr = math.sqrt((dist * dist) + (past_dist * past_dist) - 2 * dist * past_dist * math.cos(10 / 180 * pi))
-    degr = 180 - (math.acos(((otr * otr) + (past_dist * past_dist) - (dist * dist)) / 2 * otr * past_dist))
+    degr = 180 - (math.acos(((otr * otr) + (past_dist * past_dist) - (dist * dist)) / 2 * otr * past_dist)) / pi * 180
     if dist <= past_dist:
         degr = degr * (-1)
     Round(-10)

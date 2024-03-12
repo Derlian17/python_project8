@@ -90,7 +90,7 @@ def Shortest_route():
 
 def Adjust():
     otr = math.sqrt((dist * dist) + (past_dist * past_dist) - 2 * dist * past_dist * math.cos(10 / 180 * pi))
-    degr = 180 - (math.acos(((otr * otr) + (past_dist * past_dist) - (dist * dist)) / 2 * otr * past_dist)) / pi * 180
+    degr = 180 - (math.acos(((otr * otr) + (past_dist * past_dist) - (dist * dist)) / (2 * otr * past_dist))) / pi * 180
     if dist <= past_dist:
         degr = degr * (-1)
     Round(-10)

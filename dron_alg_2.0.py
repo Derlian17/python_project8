@@ -85,8 +85,8 @@ def Go_around(degr):
 
 def Shortest_route():
     if (dron_coord[0] - end_coord[0]) < 0 or (dron_coord[1] - end_coord[1]) < 0:
-        return -1 * math.atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1])))
-    return math.atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1])))
+        return -1 * math.atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1]))) / pi * 180
+    return math.atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1]))) / pi * 180
 
 def Adjust():
     otr = math.sqrt((dist * dist) + (past_dist * past_dist) - 2 * dist * past_dist * math.cos(10 / 180 * pi))

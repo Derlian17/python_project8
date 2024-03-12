@@ -1,4 +1,4 @@
-import math
+from math import atan, sin, cos, acos
 from math import pi
 
 DRONH = 1
@@ -12,8 +12,8 @@ past_dist = 0
 dist = 0
 
 def Step(x):
-    dron_coord[0] += x * math.sin(dron_degr / 180 * pi)
-    dron_coord[1] += x * math.cos(dron_degr / 180 * pi)
+    dron_coord[0] += x * sin(dron_degr / 180 * pi)
+    dron_coord[1] += x * cos(dron_degr / 180 * pi)
     with open("log.txt", "a") as file:
         file.write(f"B move({x})\n")
     Find_dist()
@@ -54,8 +54,8 @@ def Look_around():
         Round(1)
         if dist == -1:
             Go_around(degr)
-        if dist > (math.sin(degr / 180 * pi) * dist):
-            if (math.sin(degr / 180 * pi) * dist) - (math.sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) > DRONW:
+        if dist > (sin(degr / 180 * pi) * dist):
+            if (sin(degr / 180 * pi) * dist) - (sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) > DRONW:
                 Go_around(degr)
                 return
     Round(-1 * degr)
@@ -65,8 +65,8 @@ def Look_around():
         Round(-1)
         if dist == -1:
             Go_around(degr)
-        if dist > (math.sin(-degr / 180 * pi) * dist):
-            if (math.sin(-degr / 180 * pi) * dist) - (math.sin(1 * pi / 180 - degr / 180 * pi) * past_dist) > DRONW:
+        if dist > (sin(-degr / 180 * pi) * dist):
+            if (sin(-degr / 180 * pi) * dist) - (sin(1 / 180 * pi - degr / 180 * pi) * past_dist) > DRONW:
                 Go_around(degr)
                 return
 
@@ -74,7 +74,7 @@ def Go_around(degr):
     if degr:
         Round(90 - degr)
         if dist == -1:
-            Step((math.sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
+            Step((sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
         else:
             Round(-90)
             Adjust()
@@ -85,12 +85,12 @@ def Go_around(degr):
 
 def Shortest_route():
     if (dron_coord[0] - end_coord[0]) < 0 or (dron_coord[1] - end_coord[1]) < 0:
-        return -1 * math.atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1]))) / pi * 180
-    return math.atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1]))) / pi * 180
+        return -1 * atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1]))) / pi * 180
+    return atan((abs(dron_coord[0] - end_coord[0])) / (abs(dron_coord[1] - end_coord[1]))) / pi * 180
 
 def Adjust():
-    otr = math.sqrt((dist * dist) + (past_dist * past_dist) - 2 * dist * past_dist * math.cos(10 / 180 * pi))
-    degr = 180 - (math.acos(((otr * otr) + (past_dist * past_dist) - (dist * dist)) / (2 * otr * past_dist))) / pi * 180
+    otr = (dist ** 2 + past_dist ** 2 - 2 * dist * past_dist * cos(10 / 180 * pi)) ** 0.5
+    degr = 180 - (acos(otr ** 2 + past_dist ** 2 - dist ** 2) / (2 * otr * past_dist)) / pi * 180
     if dist <= past_dist:
         degr = degr * (-1)
     Round(-10)

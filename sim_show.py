@@ -88,236 +88,142 @@ def read():
             print('\nS', *write(), file=filew)  # #! ввод в файл показаний датчиков !! \n - перенос строки
 
 
+def Is_Destroy():
+    global DESTROY
+    for dp in SUBPOINTS:
+        dx0, dy0, dz0 = dp
+
+        def pereschet0(point, angle):
+            try:
+                chetvert = ''
+                x0, y0 = point
+                cx, cy = 0, 0
+                dx, dy = x0 - cx, y0 - cy
+                if x0 > cx and y0 >= cy:
+                    chetvert = 'I'
+                elif x0 > cx and y0 < cy:
+                    chetvert = 'IV'
+                elif y0 >= cy:
+                    chetvert = 'II'
+                else:
+                    chetvert = 'III'
+
+                angle_f = atan((y0 - cy) / (x0 - cx))
+                if chetvert in ['I', 'IV']:
+                    pass
+                else:
+                    angle_f = angle_f + pi
+
+                ln = (dx ** 2 + dy ** 2) ** 0.5
+
+                xn = cx + ln * cos(angle_f + angle)
+                yn = cy + ln * sin(angle_f + angle)
+
+                return xn, yn
+            except ZeroDivisionError:
+                return point
+
+        pnt = (dx0, dy0)
+        pnt = pereschet0(pnt, DIRECTION_XY)
+
+        x, y = DRONEX + pnt[0], DRONEY + pnt[1]
+
+        for i in OBJECTS:
+            obj = i.copy()
+            tp, i, dxy, dyz = i
+            cx, cy, cz, wd, hd, dh = i
+            if tp == 'rect':
+                p1 = (cx - wd / 2 - Step, cy + hd / 2 + Step)  # #$ начало определения принадлежности точки
+                #                                                                       прямоугольнику повернутому
+                #                                                   на некий угол 😔
+                p2 = (cx + wd / 2 + Step, cy + hd / 2 + Step)
+                p3 = (cx + wd / 2 + Step, cy - hd / 2 - Step)
+                p4 = (cx - wd / 2 - Step, cy - hd / 2 - Step)
+
+                def pereschet(point, angle):
+                    chetvert = ''
+                    x0, y0 = point
+                    dx, dy = x0 - cx, y0 - cy
+                    if x0 > cx and y0 >= cy:
+                        chetvert = 'I'
+                    elif x0 > cx and y0 < cy:
+                        chetvert = 'IV'
+                    elif y0 >= cy:
+                        chetvert = 'II'
+                    else:
+                        chetvert = 'III'
+
+                    angle_f = atan((y0 - cy) / (x0 - cx))
+                    if chetvert in ['I', 'IV']:
+                        pass
+                    else:
+                        angle_f = angle_f + pi
+
+                    ln = (dx ** 2 + dy ** 2) ** 0.5
+
+                    xn = cx + ln * cos(angle_f + angle)
+                    yn = cy + ln * sin(angle_f + angle)
+
+                    return xn, yn
+
+                def is_in_(xp, yp, pnt1, pnt2):
+                    x1, y1 = pnt1
+                    x2, y2 = pnt2
+                    D = (x2 - x1) * (yp - y1) - (xp - x1) * (y2 - y1)
+                    return D <= 0
+
+                p1 = pereschet(p1, dxy / 180 * pi)
+                p2 = pereschet(p2, dxy / 180 * pi)
+                p3 = pereschet(p3, dxy / 180 * pi)
+                p4 = pereschet(p4, dxy / 180 * pi)
+
+                f = True
+                for k in [(p1, p2), (p2, p3), (p3, p4), (p4, p1)]:
+                    f = f and is_in_(x, y, *k)
+                    if not f:
+                        break
+                if f:
+                    DESTROY = True
+                    with open('log.txt', 'a') as filew:
+                        print('\nS', 'DESTROY', file=filew)  # #! операция записи в файл факта уничтожения
+                    return
+            elif tp == 'oval':
+                a, b = wd / 2, hd / 2  # #$ мат. формула для овала
+                if (((x - cx) * cos(dxy / 180 * pi) + (y - cy) * sin(dxy / 180 * pi)) ** 2) / (a ** 2) \
+                        + (((x - cx) * sin(dxy / 180 * pi) - (y - cy) * cos(dxy / 180 * pi)) ** 2) / (b ** 2) <= 1:
+                    DESTROY = True
+                    with open('log.txt', 'a') as filew:
+                        print('\nS', 'DESTROY', file=filew)
+                    return
+
 def move(metres):
     global DRONEX, DRONEY, DRONEZ, DESTROY
     for s in range(round(metres / Step)):
         DRONEX += 1 * Step * sin(DIRECTION_XY / 180 * pi)
         DRONEY += 1 * Step * cos(DIRECTION_XY / 180 * pi)
-        for dp in SUBPOINTS:
-            dx0, dy0, dz0 = dp
+        Is_Destroy()
 
-            def pereschet0(point, angle):
-                try:
-                    chetvert = ''
-                    x0, y0 = point
-                    cx, cy = 0, 0
-                    dx, dy = x0 - cx, y0 - cy
-                    if x0 > cx and y0 >= cy:
-                        chetvert = 'I'
-                    elif x0 > cx and y0 < cy:
-                        chetvert = 'IV'
-                    elif y0 >= cy:
-                        chetvert = 'II'
-                    else:
-                        chetvert = 'III'
-
-                    angle_f = atan((y0 - cy) / (x0 - cx))
-                    if chetvert in ['I', 'IV']:
-                        pass
-                    else:
-                        angle_f = angle_f + pi
-
-                    ln = (dx ** 2 + dy ** 2) ** 0.5
-
-                    xn = cx + ln * cos(angle_f + angle)
-                    yn = cy + ln * sin(angle_f + angle)
-
-                    return xn, yn
-                except ZeroDivisionError:
-                    return point
-
-            pnt = (dx0, dy0)
-            pnt = pereschet0(pnt, DIRECTION_XY)
-
-            x, y = DRONEX + pnt[0], DRONEY + pnt[1]
-
-            for i in OBJECTS:
-                obj = i.copy()
-                tp, i, dxy, dyz = i
-                cx, cy, cz, wd, hd, dh = i
-                if tp == 'rect':
-                    p1 = (cx - wd / 2 - Step, cy + hd / 2 + Step)  # #$ начало определения принадлежности точки
-#                                                                       прямоугольнику повернутому
-                    #                                                   на некий угол 😔
-                    p2 = (cx + wd / 2 + Step, cy + hd / 2 + Step)
-                    p3 = (cx + wd / 2 + Step, cy - hd / 2 - Step)
-                    p4 = (cx - wd / 2 - Step, cy - hd / 2 - Step)
-
-                    def pereschet(point, angle):
-                        chetvert = ''
-                        x0, y0 = point
-                        dx, dy = x0 - cx, y0 - cy
-                        if x0 > cx and y0 >= cy:
-                            chetvert = 'I'
-                        elif x0 > cx and y0 < cy:
-                            chetvert = 'IV'
-                        elif y0 >= cy:
-                            chetvert = 'II'
-                        else:
-                            chetvert = 'III'
-
-                        angle_f = atan((y0 - cy) / (x0 - cx))
-                        if chetvert in ['I', 'IV']:
-                            pass
-                        else:
-                            angle_f = angle_f + pi
-
-                        ln = (dx ** 2 + dy ** 2) ** 0.5
-
-                        xn = cx + ln * cos(angle_f + angle)
-                        yn = cy + ln * sin(angle_f + angle)
-
-                        return xn, yn
-
-                    def is_in_(xp, yp, pnt1, pnt2):
-                        x1, y1 = pnt1
-                        x2, y2 = pnt2
-                        D = (x2 - x1) * (yp - y1) - (xp - x1) * (y2 - y1)
-                        return D <= 0
-
-                    p1 = pereschet(p1, dxy / 180 * pi)
-                    p2 = pereschet(p2, dxy / 180 * pi)
-                    p3 = pereschet(p3, dxy / 180 * pi)
-                    p4 = pereschet(p4, dxy / 180 * pi)
-
-                    f = True
-                    for k in [(p1, p2), (p2, p3), (p3, p4), (p4, p1)]:
-                        f = f and is_in_(x, y, *k)
-                        if not f:
-                            break
-                    if f:
-                        DESTROY = True
-                        with open('log.txt', 'a') as filew:
-                            print('\nS', 'DESTROY', file=filew)  # #! операция записи в файл факта уничтожения
-                        return
-                elif tp == 'oval':
-                    a, b = wd / 2, hd / 2  # #$ мат. формула для овала
-                    if (((x - cx) * cos(dxy / 180 * pi) + (y - cy) * sin(dxy / 180 * pi)) ** 2) / (a ** 2) \
-                            + (((x - cx) * sin(dxy / 180 * pi) - (y - cy) * cos(dxy / 180 * pi)) ** 2) / (b ** 2) <= 1:
-                        DESTROY = True
-                        with open('log.txt', 'a') as filew:
-                            print('\nS', 'DESTROY', file=filew)
-                        return
     for s in range(round(-metres / Step)):  # f ntgthm ltnbirb bltv yfpfl
         DRONEX -= 1 * Step * sin(DIRECTION_XY / 180 * pi)
         DRONEY -= 1 * Step * cos(DIRECTION_XY / 180 * pi)
-        for dp in SUBPOINTS:
-            dx0, dy0, dz0 = dp
-
-            def pereschet0(point, angle):
-                try:
-                    chetvert = ''
-                    x0, y0 = point
-                    cx, cy = 0, 0
-                    dx, dy = x0 - cx, y0 - cy
-                    if x0 > cx and y0 >= cy:
-                        chetvert = 'I'
-                    elif x0 > cx and y0 < cy:
-                        chetvert = 'IV'
-                    elif y0 >= cy:
-                        chetvert = 'II'
-                    else:
-                        chetvert = 'III'
-
-                    angle_f = atan((y0 - cy) / (x0 - cx))
-                    if chetvert in ['I', 'IV']:
-                        pass
-                    else:
-                        angle_f = angle_f + pi
-
-                    ln = (dx ** 2 + dy ** 2) ** 0.5
-
-                    xn = cx + ln * cos(angle_f + angle)
-                    yn = cy + ln * sin(angle_f + angle)
-
-                    return xn, yn
-                except ZeroDivisionError:
-                    return point
-
-            pnt = (dx0, dy0)
-            pnt = pereschet0(pnt, DIRECTION_XY)
-
-            x, y = DRONEX + pnt[0], DRONEY + pnt[1]
-
-            for i in OBJECTS:
-                obj = i.copy()
-                tp, i, dxy, dyz = i
-                cx, cy, cz, wd, hd, dh = i
-                if tp == 'rect':
-                    p1 = (cx - wd / 2 - Step, cy + hd / 2 + Step)  # #$ начало определения принадлежности точки
-                    #                                                                       прямоугольнику повернутому
-                    #                                                   на некий угол 😔
-                    p2 = (cx + wd / 2 + Step, cy + hd / 2 + Step)
-                    p3 = (cx + wd / 2 + Step, cy - hd / 2 - Step)
-                    p4 = (cx - wd / 2 - Step, cy - hd / 2 - Step)
-
-                    def pereschet(point, angle):
-                        chetvert = ''
-                        x0, y0 = point
-                        dx, dy = x0 - cx, y0 - cy
-                        if x0 > cx and y0 >= cy:
-                            chetvert = 'I'
-                        elif x0 > cx and y0 < cy:
-                            chetvert = 'IV'
-                        elif y0 >= cy:
-                            chetvert = 'II'
-                        else:
-                            chetvert = 'III'
-
-                        angle_f = atan((y0 - cy) / (x0 - cx))
-                        if chetvert in ['I', 'IV']:
-                            pass
-                        else:
-                            angle_f = angle_f + pi
-
-                        ln = (dx ** 2 + dy ** 2) ** 0.5
-
-                        xn = cx + ln * cos(angle_f + angle)
-                        yn = cy + ln * sin(angle_f + angle)
-
-                        return xn, yn
-
-                    def is_in_(xp, yp, pnt1, pnt2):
-                        x1, y1 = pnt1
-                        x2, y2 = pnt2
-                        D = (x2 - x1) * (yp - y1) - (xp - x1) * (y2 - y1)
-                        return D <= 0
-
-                    p1 = pereschet(p1, dxy / 180 * pi)
-                    p2 = pereschet(p2, dxy / 180 * pi)
-                    p3 = pereschet(p3, dxy / 180 * pi)
-                    p4 = pereschet(p4, dxy / 180 * pi)
-
-                    f = True
-                    for k in [(p1, p2), (p2, p3), (p3, p4), (p4, p1)]:
-                        f = f and is_in_(x, y, *k)
-                        if not f:
-                            break
-                    if f:
-                        DESTROY = True
-                        with open('log.txt', 'a') as filew:
-                            print('\nS', 'DESTROY', file=filew)  # #! операция записи в файл факта уничтожения
-                        return
-                elif tp == 'oval':
-                    a, b = wd / 2, hd / 2  # #$ мат. формула для овала
-                    if (((x - cx) * cos(dxy / 180 * pi) + (y - cy) * sin(dxy / 180 * pi)) ** 2) / (a ** 2) \
-                            + (((x - cx) * sin(dxy / 180 * pi) - (y - cy) * cos(dxy / 180 * pi)) ** 2) / (b ** 2) <= 1:
-                        DESTROY = True
-                        with open('log.txt', 'a') as filew:
-                            print('\nS', 'DESTROY', file=filew)
-                        return
+        Is_Destroy()
 
 
 def rotate(angle):
     global DIRECTION_XY
     DIRECTION_XY += angle
     DIRECTION_XY %= 360
-    
+    Is_Destroy()
+
 
 def set_ang(angle):
     global DIRECTION_XY
     DIRECTION_XY = angle
     DIRECTION_XY %= 360
+    Is_Destroy()
+
+def Finish():
+    raise ImportError('WIN!!!')
 
 
 def write():  # yt ktpmnt? jyj dfc cj;htn...
@@ -524,6 +430,14 @@ def but2(event):
     move(ln)
 
 master.bind('<ButtonPress 2>', but2)
+
+
+def destroy(*args):
+    with open('log.txt', 'a') as file:
+        print('S WindowDestroy', file=file)
+
+
+master.bind('<Destroy>', destroy)
 
 
 while DESTROY is False:

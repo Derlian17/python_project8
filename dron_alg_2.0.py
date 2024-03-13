@@ -148,6 +148,8 @@ while Run:
     while dist >= 3 or dist == -1:
         if It_is_finish():
             Run = False
+            with open('log.txt', 'a') as file:
+                print('B Finish()', file=file)
             break
         Round(Shortest_route()-dron_degr)
         # if Something_is_in_the_way():

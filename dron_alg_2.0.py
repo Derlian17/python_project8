@@ -53,11 +53,11 @@ def Look_around():
         degr += 5
         Round(5)
         if dist == -1:
-            Bypass(degr, past_dist)
+            Bypass(dron_degr, past_dist)
             return
-        if dist > (sin(degr / 180 * pi) * dist):
+        if past_dist > (sin(degr / 180 * pi) * dist):
             if (sin(degr / 180 * pi) * dist) - (sin(degr / 180 * pi - 5 / 180 * pi) * past_dist) > DRONW:
-                Go_around(degr)
+                Go_around(dron_degr)
                 return
     Round(-1 * degr)
     degr = 0
@@ -65,11 +65,11 @@ def Look_around():
         degr -= 5
         Round(-5)
         if dist == -1:
-            Bypass(degr, past_dist)
+            Bypass(dron_degr, past_dist)
             return
-        if dist > (sin(-degr / 180 * pi) * dist):
+        if past_dist > (sin(-degr / 180 * pi) * dist):
             if (sin(-degr / 180 * pi) * dist) - (sin(5 / 180 * pi - degr / 180 * pi) * past_dist) > DRONW:
-                Go_around(degr)
+                Go_around(dron_degr)
                 return
 
 def Go_around(degr):
@@ -78,7 +78,7 @@ def Go_around(degr):
         if dist == -1:
             # print(past_dist, degr)
             # print('GOAR1: ', (sin(degr / 180 * pi - 1 / 180 * pi) * past_dist))
-            Step((sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
+            Step(abs(sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
         else:
             # print(past_dist, degr)
             # print('GOAR2: ', (sin(degr / 180 * pi - 1 / 180 * pi) * past_dist))
@@ -90,7 +90,7 @@ def Go_around(degr):
         if dist == -1:
             # print(past_dist, degr)
             # print('GOAR1: ', (sin(degr / 180 * pi - 1 / 180 * pi) * past_dist))
-            Step((sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
+            Step(abs(sin(degr / 180 * pi - 1 / 180 * pi) * past_dist) + 0.5 * DRONW)
         else:
             # print(past_dist, degr)
             # print('GOAR2: ', (sin(degr / 180 * pi - 1 / 180 * pi) * past_dist))
@@ -129,14 +129,14 @@ def Bypass(degr, rasst):
     if degr > 0:
         Round(90-degr)
         if dist == -1:
-            Step((sin(degr-1) * rasst)+0.5 * DRONW)
+            Step(abs(sin(degr/180*pi-1/180*pi) * rasst)+0.5 * DRONW)
         else :
             Round(-90)
             Adjust()
     else:
         Round(-90-degr)
         if dist == -1:
-            Step((sin(degr-1) * rasst)+0.5 * DRONW)
+            Step(abs(sin(-degr/180*pi-1/180*pi) * rasst)+0.5 * DRONW)
         else :
             Round(90)
             Adjust()
@@ -150,7 +150,9 @@ while Run:
             Run = False
             break
         Round(Shortest_route()-dron_degr)
-        if Something_is_in_the_way():
+        # if Something_is_in_the_way():
+        #     break
+        if dist < 3 and dist != -1:
             break
-        Step(1)
+        Step(0.5)
     Look_around()

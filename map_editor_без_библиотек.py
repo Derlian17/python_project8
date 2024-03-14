@@ -1,6 +1,6 @@
 from tkinter import *
 from math import *
-from tkinter.filedialog import asksaveasfilename
+from tkinter.filedialog import asksaveasfilename, askopenfilename
 
 master = Tk()
 canvas = Canvas(master, width=600, height=600)
@@ -204,13 +204,17 @@ def main():
         but_cancel = Button(dialog, text='cancel', background='red', command=cancel)
         but_cancel.place_configure(x=120, y=107, width=60)
 
+        dialog.attributes('-topmost', True)
         dialog.mainloop()
 
     master.bind('<ButtonPress 1>', create_object)
+    master.bind('<Shift-ButtonPress 3>', create_object)
 
     def update():
         global DRONEX, DRONEY
         canvas.delete('map')
+        canvas.create_oval(300-0.1*Masshtabe, 300-0.1*Masshtabe, 300+0.1*Masshtabe, 300+0.1*Masshtabe,
+                           fill='red', stipple='gray50', tags=['map', 'obj'])
 
         if 2.1 >= scale.get() >= 1:
             DRONEX -= DXM
@@ -330,7 +334,8 @@ def main():
                     points.append(x1 + cx)
                     points.append(y1 + cy)
 
-                canvas.create_polygon(*points, fill='grey', tags=['map', 'move', 'obj', f'o{n}'])
+                canvas.create_polygon(*points, fill='grey', tags=['map', 'move', 'obj', f'o{n}'], stipple='gray25'
+                                      , activeoutline='blue')
 
                 # map_canvas.create_oval(cx-wd/2, cy-hd/2, cx+wd/2, cy+hd/2, fill='grey',
                 #                        tags=['map', 'move'])
@@ -372,7 +377,8 @@ def main():
                 p4 = pereschet(p4, dxy / 180 * pi)
 
                 canvas.create_polygon(*p1, *p2, *p3, *p4, fill='grey',
-                                      tags=['map', 'move', 'obj', f'o{n}'])
+                                      tags=['map', 'move', 'obj', f'o{n}'], stipple='gray25'
+                                      , activeoutline='blue')
 
             def in_():
                 nonlocal n
@@ -489,6 +495,26 @@ BoteZ: 0
                 print(tp, str(i) + '_' + str(xy) + '_' + str(yz), file=file)
         Autosaves -= 1
 
+    def map_open(*args):
+        res = askopenfilename()
+        if res != '':
+            OBJECTS.clear()
+            data = open(res).readlines()
+            for i in data[3:]:
+                if i.strip() in ['\n', '']:
+                    pass
+                else:
+                    els = i.split()
+                    els = [els[0]] + ' '.join(els[1:]).split('_')
+                    els[1] = eval(els[1])
+                    if len(els) < 4:
+                        els += ['0']
+                    if len(els) < 4:
+                        els += ['0']
+                    els[2] = float(els[2])
+                    els[3] = float(els[3])
+                    OBJECTS.append(els)  # заполнение переменной объектами
+
     master.bind('<MouseWheel>', scale2)
 
     master.bind('<Control-s>', save)
@@ -496,6 +522,8 @@ BoteZ: 0
     master.bind('<Destroy>', autosave)
     master.bind('<Shift-S>', msave)
     master.bind('<Shift-s>', msave)
+    master.bind('<Control-o>', map_open)
+    master.bind('<Control-O>', map_open)
 
     master.attributes("-topmost", True)
     while True:

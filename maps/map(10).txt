@@ -1,0 +1,1 @@
+BoteX: 0BoteY: 0BoteZ: 0oval [0, 30, 0,        15, 15, -1]

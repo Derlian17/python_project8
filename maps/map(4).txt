@@ -1,0 +1,5 @@
+BoteX: 0
+BoteY: 0
+BoteZ: 0
+
+rect [5, 15, 0,        20, 4, -1]

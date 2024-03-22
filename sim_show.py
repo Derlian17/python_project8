@@ -16,6 +16,8 @@ import time
 
 from PIL import Image, ImageTk
 
+from datetime import timedelta
+
 master = Tk()
 map_canvas = Canvas(master=master, width=600, height=600, background='DarkGrey')
 FILE = askopenfilename()
@@ -56,6 +58,17 @@ DX, DY = 0, 0
 DESTROY = False  # переменная на прекращение цикла
 
 SUBPOINTS = [(0, 0, 0), (0.5, 0.42, 0), (0.5, -0.42, 0), (-0.5, 0.42, 0), (-0.5, -0.42, 0)]
+
+Max_speed = 5
+Max_rot_speed = 5 * (pi * 1) / 360
+
+now_speed = 4
+now_rot_speed = 2 / (pi * 0.5 * 2) * 360
+
+move_step = 20
+rot_step = 20
+
+Angle_step = 1
 
 for i in data[3:]:
     if i.strip() in ['\n', '']:
@@ -196,22 +209,52 @@ def Is_Destroy():
                         print('\nS', 'DESTROY', file=filew)
                     return
 
+
 def move(metres):
     global DRONEX, DRONEY, DRONEZ, DESTROY
+    st_time = time.time()
     for s in range(round(metres / Step)):
         DRONEX += 1 * Step * sin(DIRECTION_XY / 180 * pi)
         DRONEY += 1 * Step * cos(DIRECTION_XY / 180 * pi)
         Is_Destroy()
-
+        if s % move_step == 0:
+            update()
+            lst_time = st_time
+            time.sleep(max(-time.time()+lst_time+move_step*Step/now_speed,0))
+            st_time = time.time()
+    st_time = time.time()
     for s in range(round(-metres / Step)):  # f ntgthm ltnbirb bltv yfpfl
         DRONEX -= 1 * Step * sin(DIRECTION_XY / 180 * pi)
         DRONEY -= 1 * Step * cos(DIRECTION_XY / 180 * pi)
         Is_Destroy()
+        if s % move_step == 0:
+            update()
+            lst_time = st_time
+            time.sleep(max(-time.time() + lst_time + move_step * Step / now_speed, 0))
+            st_time = time.time()
 
 
 def rotate(angle):
     global DIRECTION_XY
-    DIRECTION_XY += angle
+    st_time = time.time()
+    for d in range(round(angle / Angle_step)):
+        DIRECTION_XY += 1 * Angle_step
+        Is_Destroy()
+        if d % rot_step == 0:
+            update()
+            lst_time = st_time
+            time.sleep(max(-time.time() + lst_time + rot_step * Angle_step / now_rot_speed, 0))
+            st_time = time.time()
+    st_time = time.time()
+    for d in range(round(-angle / Angle_step)):
+        DIRECTION_XY -= 1 * Angle_step
+        Is_Destroy()
+        if d % rot_step == 0:
+            update()
+            lst_time = st_time
+            time.sleep(max(-time.time() + lst_time + rot_step * Angle_step / now_rot_speed, 0))
+            st_time = time.time()
+    # DIRECTION_XY += angle
     DIRECTION_XY %= 360
     Is_Destroy()
 
@@ -221,6 +264,7 @@ def set_ang(angle):
     DIRECTION_XY = angle
     DIRECTION_XY %= 360
     Is_Destroy()
+
 
 def Finish():
     raise ImportError('WIN!!!')
@@ -335,11 +379,13 @@ def stMove_map(event):
     global stDMX, stDMY
     stDMX, stDMY = event.x / Masshtabe, event.y / Masshtabe
 
+
 def Move_map(event):
     global DXM, DYM, stDMX, stDMY
     DXM += event.x / Masshtabe - stDMX
     DYM += event.y / Masshtabe - stDMY
     stDMX, stDMY = event.x/Masshtabe, event.y/Masshtabe
+
 
 def restMapD(event):
     global DXM, DYM
@@ -365,20 +411,25 @@ def move2up(event):
     if DESTROY is False:
         move(10*Step)
 
+
 def move2down(event):
     if DESTROY is False:
         move(-10*Step)
+
 
 def move2right(event):
     if DESTROY is False:
         rotate(5)
 
+
 def move2left(event):
     if DESTROY is False:
         rotate(-5)
 
+
 def pr(event):
     print(event)
+
 
 master.bind('<Key-Up>', move2up)
 master.bind('<Key-Down>', move2down)
@@ -389,11 +440,14 @@ master.bind('<Key-Right>', move2right)
 SensUPDATE = False
 sensors = map_canvas.create_text(10, 10, text='', anchor='nw', fill='green',font=Font(size=18, weight='bold'))
 
+
 def show_and_dont_hide(event):
     global SensUPDATE
     SensUPDATE = True
 
+
 master.bind('<Key-Tab>', show_and_dont_hide)
+
 
 def but2(event):
     global DIRECTION_XY, DX, DY
@@ -429,6 +483,7 @@ def but2(event):
     rotate(angle_f * 180 / pi)
     move(ln)
 
+
 master.bind('<ButtonPress 2>', but2)
 
 
@@ -440,7 +495,8 @@ def destroy(*args):
 master.bind('<Destroy>', destroy)
 
 
-while DESTROY is False:
+def update():
+    global DX, DY, DRONEX, DRONEY, img
     map_canvas.delete('map')
 
     if scale.get() >= 1:
@@ -452,46 +508,50 @@ while DESTROY is False:
                                        600, i - DRONEY * Masshtabe % Masshtabe, tags=['map'], width=2, stipple='gray50')
             else:
                 st = 'gray50'
-                map_canvas.create_line(0, i-DRONEY * Masshtabe % Masshtabe,
-                                       600, i-DRONEY * Masshtabe % Masshtabe, tags=['map'], stipple=st)
+                map_canvas.create_line(0, i - DRONEY * Masshtabe % Masshtabe,
+                                       600, i - DRONEY * Masshtabe % Masshtabe, tags=['map'], stipple=st)
             if (i + DRONEX * Masshtabe - 300) // Masshtabe % 10 == 0:
                 map_canvas.create_line(i - DRONEX * Masshtabe % Masshtabe, 0,
                                        i - DRONEX * Masshtabe % Masshtabe, 600, tags=['map'], width=2, stipple='gray50')
             else:
                 st = 'gray50'
-                map_canvas.create_line(i-DRONEX * Masshtabe % Masshtabe, 0,
-                                       i-DRONEX * Masshtabe % Masshtabe, 600, tags=['map'], stipple=st)
-        for i in range(300, 600+Masshtabe, Masshtabe):
+                map_canvas.create_line(i - DRONEX * Masshtabe % Masshtabe, 0,
+                                       i - DRONEX * Masshtabe % Masshtabe, 600, tags=['map'], stipple=st)
+        for i in range(300, 600 + Masshtabe, Masshtabe):
             if (i + DRONEY * Masshtabe - 300) // Masshtabe % 10 == 0:
                 map_canvas.create_line(0, i - DRONEY * Masshtabe % Masshtabe,
                                        600, i - DRONEY * Masshtabe % Masshtabe, tags=['map'], width=2, stipple='gray50')
             else:
                 st = 'gray50'
-                map_canvas.create_line(0, i-DRONEY * Masshtabe % Masshtabe,
-                                       600, i-DRONEY * Masshtabe % Masshtabe, tags=['map'], stipple=st)
+                map_canvas.create_line(0, i - DRONEY * Masshtabe % Masshtabe,
+                                       600, i - DRONEY * Masshtabe % Masshtabe, tags=['map'], stipple=st)
             if (i + DRONEX * Masshtabe - 300) // Masshtabe % 10 == 0:
                 map_canvas.create_line(i - DRONEX * Masshtabe % Masshtabe, 0,
                                        i - DRONEX * Masshtabe % Masshtabe, 600, tags=['map'], width=2, stipple='gray50')
             else:
                 st = 'gray50'
-                map_canvas.create_line(i-DRONEX * Masshtabe % Masshtabe, 0,
-                                       i-DRONEX * Masshtabe % Masshtabe, 600, tags=['map'], stipple=st)
+                map_canvas.create_line(i - DRONEX * Masshtabe % Masshtabe, 0,
+                                       i - DRONEX * Masshtabe % Masshtabe, 600, tags=['map'], stipple=st)
         DRONEX += DXM
         DRONEY += DYM
     else:
         DRONEX -= DXM
         DRONEY -= DYM
-        for i in range(300, -10*Masshtabe, -10*Masshtabe):
+        for i in range(300, -10 * Masshtabe, -10 * Masshtabe):
             map_canvas.create_line(0, i - DRONEY * Masshtabe % (10 * Masshtabe),
-                                   600, i - DRONEY * Masshtabe % (10 * Masshtabe), tags=['map'], width=2, stipple='gray50')
+                                   600, i - DRONEY * Masshtabe % (10 * Masshtabe), tags=['map'], width=2,
+                                   stipple='gray50')
             map_canvas.create_line(i - DRONEX * Masshtabe % (10 * Masshtabe), 0,
-                                   i - DRONEX * Masshtabe % (10 * Masshtabe), 600, tags=['map'], width=2, stipple='gray50')
+                                   i - DRONEX * Masshtabe % (10 * Masshtabe), 600, tags=['map'], width=2,
+                                   stipple='gray50')
 
-        for i in range(300, 600+10*Masshtabe, 10*Masshtabe):
+        for i in range(300, 600 + 10 * Masshtabe, 10 * Masshtabe):
             map_canvas.create_line(0, i - DRONEY * Masshtabe % (10 * Masshtabe),
-                                   600, i - DRONEY * Masshtabe % (10 * Masshtabe), tags=['map'], width=2, stipple='gray50')
+                                   600, i - DRONEY * Masshtabe % (10 * Masshtabe), tags=['map'], width=2,
+                                   stipple='gray50')
             map_canvas.create_line(i - DRONEX * Masshtabe % (10 * Masshtabe), 0,
-                                   i - DRONEX * Masshtabe % (10 * Masshtabe), 600, tags=['map'], width=2, stipple='gray50')
+                                   i - DRONEX * Masshtabe % (10 * Masshtabe), 600, tags=['map'], width=2,
+                                   stipple='gray50')
         DRONEX += DXM
         DRONEY += DYM
     for i in OBJECTS:
@@ -508,8 +568,8 @@ while DESTROY is False:
                 x0, y0 = a * cos(ang / 180 * pi), b * sin(ang / 180 * pi)
                 x1 = x0 * cos(dxy / 180 * pi) - y0 * sin(dxy / 180 * pi)
                 y1 = x0 * sin(dxy / 180 * pi) + y0 * cos(dxy / 180 * pi)
-                points.append(x1+cx)
-                points.append(y1+cy)
+                points.append(x1 + cx)
+                points.append(y1 + cy)
 
             map_canvas.create_polygon(*points, fill='grey', tags=['map', 'move', 'obj'])
 
@@ -547,21 +607,20 @@ while DESTROY is False:
 
                 return xn, yn
 
-
             p1 = pereschet(p1, dxy / 180 * pi)
             p2 = pereschet(p2, dxy / 180 * pi)
             p3 = pereschet(p3, dxy / 180 * pi)
             p4 = pereschet(p4, dxy / 180 * pi)
 
             map_canvas.create_polygon(*p1, *p2, *p3, *p4, fill='grey',
-                                        tags=['map', 'move', 'obj'])
+                                      tags=['map', 'move', 'obj'])
 
-    map_canvas.move('move', 300-DRONEX*Masshtabe, 300-DRONEY*Masshtabe)
+    map_canvas.move('move', 300 - DRONEX * Masshtabe, 300 - DRONEY * Masshtabe)
 
     for sens in DRONE_SENSORS:
         xy, _, dst, ang_range = sens
         dst *= Masshtabe
-        map_canvas.create_arc(300-dst, 300-dst, 300+dst, 300+dst, start=DIRECTION_XY+xy-ang_range/2-90,
+        map_canvas.create_arc(300 - dst, 300 - dst, 300 + dst, 300 + dst, start=DIRECTION_XY + xy - ang_range / 2 - 90,
                               extent=ang_range, tags=['map', 'obj', 'sens'])
 
     img = Image.open('img.png')
@@ -574,7 +633,6 @@ while DESTROY is False:
     #                        300-0.5*Masshtabe*cos(DIRECTION_XY / 180 * pi+ pi), 300, 300, tags=['map'], fill='red',
     #                        width=2)
     map_canvas.create_image(300, 300, image=img, tags=['map', 'obj'])
-
 
     def pereschet0(point, angle):
         try:
@@ -606,17 +664,24 @@ while DESTROY is False:
         except ZeroDivisionError:
             return point
 
-
     for pnt in SUBPOINTS:
         dx, dy, dz = pnt
         pntn = pereschet0((dx, dy), -DIRECTION_XY / 180 * pi + pi)
-        xo, yo = pntn[0]*Masshtabe+300, pntn[1] * Masshtabe+300
-        map_canvas.create_oval(xo+1, yo+1, xo-1, yo-1,
+        xo, yo = pntn[0] * Masshtabe + 300, pntn[1] * Masshtabe + 300
+        map_canvas.create_oval(xo + 1, yo + 1, xo - 1, yo - 1,
                                fill='green', tags=['map', 'obj'], outline='green')
-    map_canvas.move('obj', DXM*Masshtabe, DYM*Masshtabe)
+    map_canvas.move('obj', DXM * Masshtabe, DYM * Masshtabe)
     if SensUPDATE:
         map_canvas.itemconfigure(sensors, text=' '.join(map(str, write())))
+
+    map_canvas.create_text(520, 60, text=str(timedelta(seconds=round(time.monotonic()-start_time))), tags=['map'],
+                           fill='green', font=Font(size=14))
+
     master.update()
+
+
+while DESTROY is False:
+    update()
     DX, DY = DRONEX, DRONEY
     read()
 
@@ -656,8 +721,7 @@ while DESTROY is False:
 
         master.update()
         time.sleep(2.5)
-
-    time.sleep(step_time - ((time.monotonic() - start_time) % step_time))
+   # time.sleep(step_time - ((time.monotonic() - start_time) % step_time))
 
 print(DRONEX, DRONEY)
 

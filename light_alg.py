@@ -113,7 +113,11 @@ def Shortest_route():  # угол до конечной точки. работа
             angle_f = 0  # если иксы совпадают
         else:  # если иксы совпадают
             angle_f = pi  # если иксы совпадают
-    return angle_f / pi * 180  # возврат угла в градусах
+
+    angle_f = angle_f / pi * 180
+    if angle_f > 180:
+        angle_f = angle_f - 360
+    return angle_f  # возврат угла в градусах
 
 
 def Look_forward(rasst=1):  # смотрим влезем ли если правый бок параллелен

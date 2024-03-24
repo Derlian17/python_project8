@@ -722,12 +722,15 @@ for FILE in FILES:
         data = FILE_o.readlines()
         file_read()
         try:
+            master.wm_title(FILE)
             main()
         except ImportError:
             print(FILE, 'complited', 'in a time', timedelta(seconds=time.monotonic()-start_time))
         except FileExistsError:
             print(FILE, 'failed', 'in a time', timedelta(seconds=time.monotonic()-start_time),
                   'in coords', DRONEX, ';', DRONEY)
-
+    except TclError:
+        master = Tk()
+        map_canvas = Canvas(master=master, width=600, height=600, background='DarkGrey')
     except Exception:
         print(FILE, 'error_read')

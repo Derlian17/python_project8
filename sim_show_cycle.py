@@ -141,7 +141,7 @@ def file_read():
 
 
 def main():
-    global start_time
+    global start_time, rotate, move, Finish, set_ang
 
     def read():
         with open('log.txt') as file:
@@ -726,8 +726,8 @@ for FILE in FILES:
         except ImportError:
             print(FILE, 'complited', 'in a time', timedelta(seconds=time.monotonic()-start_time))
         except FileExistsError:
-            print(FILE, 'complited', 'in a time', timedelta(seconds=time.monotonic()-start_time),
-                  'in coords', DRONEX, ':', DRONEY)
+            print(FILE, 'failed', 'in a time', timedelta(seconds=time.monotonic()-start_time),
+                  'in coords', DRONEX, ';', DRONEY)
 
     except Exception:
         print(FILE, 'error_read')

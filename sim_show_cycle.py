@@ -18,8 +18,13 @@ from PIL import Image, ImageTk
 
 from datetime import timedelta
 
+
+params = [600, 600, 0, 0]
+
 master = Tk()
+master.wm_geometry(str(params[0])+'x'+str(params[1])+'+'+str(params[2])+'+'+str(params[3]))
 map_canvas = Canvas(master=master, width=600, height=600, background='DarkGrey')
+
 import os
 Path = askdirectory()
 FILES = []
@@ -520,7 +525,8 @@ def main():
     master.bind('<Destroy>', destroy)
 
     def update():
-        global DX, DY, DRONEX, DRONEY, img
+        global DX, DY, DRONEX, DRONEY, img, params
+        params = master.winfo_geometry()
         map_canvas.delete('map')
 
         if scale.get() >= 1:
@@ -731,6 +737,7 @@ for FILE in FILES:
                   'in coords', DRONEX, ';', DRONEY)
     except TclError:
         master = Tk()
+        master.wm_geometry(params)
         map_canvas = Canvas(master=master, width=600, height=600, background='DarkGrey')
     except Exception:
         print(FILE, 'error_read')

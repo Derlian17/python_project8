@@ -3,7 +3,7 @@ from math import *
 from tkinter.filedialog import asksaveasfilename, askopenfilename
 
 master = Tk()
-canvas = Canvas(master, width=600, height=600)
+canvas = Canvas(master, width=600, height=600, background='white')
 
 img = PhotoImage(master=master, file='img_1.png')
 canvas.pack()
@@ -526,6 +526,7 @@ BoteZ: 0
     master.bind('<Control-O>', map_open)
 
     master.attributes("-topmost", True)
+    # master.wm_attributes("-transparentcolor", "white")
     while True:
         update()
 

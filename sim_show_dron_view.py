@@ -23,6 +23,36 @@ one_file = bool(input('Файл если правда, папка если ло�
 max_len_Data = 2000
 max_len_Data **= see_last
 
+
+def Shortest_route():  # угол до конечной точки. работает. не трогайте 🙏🙏
+    chetvert = ''
+    x0, y0 = (0, 70)  # ввод координат под другим именем - программа скопирована из другого проекта
+    cx, cy = DRONEX, DRONEY  # ввод координат под другим именем - программа скопирована из другого проекта
+    if x0 > cx and y0 >= cy:  # вычисление текущей четверти
+        chetvert = 'I'  # вычисление текущей четверти
+    elif x0 > cx and y0 < cy:  # вычисление текущей четверти
+        chetvert = 'IV'  # вычисление текущей четверти
+    elif y0 >= cy:  # вычисление текущей четверти
+        chetvert = 'II'  # вычисление текущей четверти
+    else:  # вычисление текущей четверти
+        chetvert = 'III'  # вычисление текущей четверти
+    try:
+        angle_f = -atan((y0 - cy) / (x0 - cx)) + pi / 2  # вычисление угла
+        if chetvert in ['I', 'IV']:  # компенсирование особенностей тангенса
+            pass  # компенсирование особенностей тангенса
+        else:  # компенсирование особенностей тангенса
+            angle_f = angle_f + pi  # компенсирование особенностей тангенса
+    except ZeroDivisionError:  # если иксы совпадают
+        if chetvert == 'II':  # если иксы совпадают
+            angle_f = 0  # если иксы совпадают
+        else:  # если иксы совпадают
+            angle_f = pi  # если иксы совпадают
+
+    angle_f = angle_f / pi * 180
+    if angle_f > 180:
+        angle_f = angle_f - 360
+    return angle_f  # возврат угла в градусах
+
 if one_file:
     Path = ''
     FILES = [askopenfilename()]
@@ -309,21 +339,11 @@ def main():
             DRONEX += 1 * Step * sin(DIRECTION_XY / 180 * pi)
             DRONEY += 1 * Step * cos(DIRECTION_XY / 180 * pi)
             Is_Destroy()
-            if s % move_step == 0:
-                update()
-                lst_time = st_time
-                time.sleep(max(-time.time() + lst_time + move_step * Step / now_speed, 0))
-                st_time = time.time()
         st_time = time.time()
         for s in range(round(-metres / Step)):  # f ntgthm ltnbirb bltv yfpfl
             DRONEX -= 1 * Step * sin(DIRECTION_XY / 180 * pi)
             DRONEY -= 1 * Step * cos(DIRECTION_XY / 180 * pi)
             Is_Destroy()
-            if s % move_step == 0:
-                update()
-                lst_time = st_time
-                time.sleep(max(-time.time() + lst_time + move_step * Step / now_speed, 0))
-                st_time = time.time()
         DRONEX, DRONEY = round(DRONEX, 2), round(DRONEY, 2)
 
     def rotate(angle):
@@ -332,20 +352,10 @@ def main():
         for d in range(round(angle / Angle_step)):
             DIRECTION_XY += 1 * Angle_step
             Is_Destroy()
-            if d % rot_step == 0:
-                update()
-                lst_time = st_time
-                time.sleep(max(-time.time() + lst_time + rot_step * Angle_step / now_rot_speed, 0))
-                st_time = time.time()
         st_time = time.time()
         for d in range(round(-angle / Angle_step)):
             DIRECTION_XY -= 1 * Angle_step
             Is_Destroy()
-            if d % rot_step == 0:
-                update()
-                lst_time = st_time
-                time.sleep(max(-time.time() + lst_time + rot_step * Angle_step / now_rot_speed, 0))
-                st_time = time.time()
         # DIRECTION_XY += angle
         DIRECTION_XY %= 360
         Is_Destroy()
@@ -357,6 +367,7 @@ def main():
         Is_Destroy()
 
     def Finish():
+        master.quit()
         raise ImportError('WIN!!!')
 
     def write():  # yt ktpmnt? jyj dfc cj;htn...
@@ -457,8 +468,7 @@ def main():
 
     scale = Scale(master, from_=0.5, to=3, command=reset_masshtabe, orient='horizontal', length=200, resolution=0.05)
     scale.set(log10(20))
-    if False:
-        scale.place_configure(x=400, y=5)
+    scale.place_configure(x=1400, y=5)
 
     def stMove_map(event):
         global stDMX, stDMY
@@ -484,7 +494,7 @@ def main():
         ins = max(0.5, min(ins, 3))
         scale.set(ins)
 
-    master.bind('<Control-MouseWheel>', scale2)
+    master.bind('<MouseWheel>', scale2)
 
     up, down, right, left = False, False, False, False
 
@@ -520,10 +530,26 @@ def main():
         nonlocal left
         left = False
 
-    master.bind('<KeyPress-Up>', move2up)
-    master.bind('<KeyPress-Down>', move2down)
-    master.bind('<KeyPress-Left>', move2left)
-    master.bind('<KeyPress-Right>', move2right)
+    def move3up(event):
+        move(10*Step)
+        dmove2up('')
+
+    def move3down(event):
+        move(-10*Step)
+        dmove2down('')
+
+    def move3left(event):
+        rotate(5)
+        dmove2left('')
+
+    def move3right(event):
+        rotate(-5)
+        dmove2right('')
+
+    master.bind('<Key-Up>', move3up)
+    master.bind('<Key-Down>', move3down)
+    master.bind('<Key-Left>', move3left)
+    master.bind('<Key-Right>', move3right)
 
     master.bind('<KeyPress-w>', move2up)
     master.bind('<KeyPress-s>', move2down)
@@ -613,7 +639,10 @@ def main():
         global DX, DY, DRONEX, DRONEY, img, params
         params = master.winfo_geometry()
         map_canvas.delete('map')
-
+        map_canvas.create_line(300, 300,
+                               300 + sin(Shortest_route() / 180 * pi) * Masshtabe * 1.2,
+                               300 + cos(Shortest_route() / 180 * pi) * Masshtabe * 1.2,
+                               arrow='last', fill='gold', tags=['map'])
         if scale.get() >= 1:
             DRONEX -= DXM
             DRONEY -= DYM
@@ -750,9 +779,10 @@ def main():
             xo, yo = pntn[0] * Masshtabe + 300, pntn[1] * Masshtabe + 300
             map_canvas.create_oval(xo + 1, yo + 1, xo - 1, yo - 1,
                                    fill='blue', tags=['map', 'obj'], outline='aqua')
-        map_canvas.create_oval(300 - 2 * Masshtabe, 300 + 68 * Masshtabe, 300 + 2 * Masshtabe, 300 + 72 * Masshtabe,
+        map_canvas.create_oval(300 - 2 * Masshtabe-DRONEX*Masshtabe, 300 + 68 * Masshtabe - DRONEY*Masshtabe,
+                               300 + 2 * Masshtabe-DRONEX*Masshtabe, 300 + 72 * Masshtabe - DRONEY*Masshtabe,
                                outline='gold',
-                               tags=['map', 'obj'], width=5)
+                               tags=['map', 'obj'], width=2)
         map_canvas.move('obj', DXM * Masshtabe, DYM * Masshtabe)
         if SensUPDATE:
             map_canvas.itemconfigure(sensors, text=' '.join(map(str, write())))
@@ -767,9 +797,26 @@ def main():
             # Create widgets, if any.
             Frame.__init__(self, master=master, **kw)
             # Call update to begin our recursive loop.
-            self.update()
+            self.move_up()
 
-        def update(self):
+        def move_up(self):
+            if up:
+                move(10*Step)
+            if down:
+                move(-10*Step)
+            if left:
+                rotate(5)
+            if right:
+                rotate(-5)
+            if DESTROY:
+                master.quit()
+                raise FileExistsError('DESTROY')
+            if length((DX, DY), (0, 70)) < 2:
+                Finish()
+            self.after(50, self.move_up)
+
+    class My2(My):
+        def move_up(self):
             global Data, DX, DY
             update()
             DX, DY = DRONEX, DRONEY
@@ -799,23 +846,10 @@ def main():
                                        fill='red', tags=['map', 'obj'], outline='maroon')
             Data = list(set(Data))[:max_len_Data]
             self.master.update()
-            # We use after( milliseconds, method_target ) to call our update
-            # method again after our entered delay. :)
-            if up:
-                move(10*Step)
-            if down:
-                move(-10*Step)
-            if left:
-                rotate(5)
-            if right:
-                rotate(-5)
-            if DESTROY:
-                raise FileExistsError('DESTROY')
-            if length((DX, DY), (0, 70)) < 2:
-                Finish()
-            self.after(100, self.update)
+            self.after(200, self.move_up)
 
     My(master).pack()
+    My2(master).pack()
     master.mainloop()
 
 
